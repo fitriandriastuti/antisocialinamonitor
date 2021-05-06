@@ -1,6 +1,7 @@
 import streamlit as st
 import classify_page as cp
-import explore_page as ep
+import explore_tweet_train_page as ettp
+import explore_tweet_predict_page as etpp
 
 # page = st.sidebar.selectbox("Explore Or Predict", ("Predict", "Explore"))
 #
@@ -38,12 +39,13 @@ choice = st.sidebar.radio("Go to Page:",('Explore Data Labelling','Explore Data 
 pkle.dump(new_choice.index(choice), open('next.p', 'wb'))
 
 if choice == 'Explore Data Labelling':
-    df = ep.load_data()
-    ep.show_explore_page(df)
+    df = ettp.load_data()
+    ettp.show_explore_page(df)
 elif choice == 'Explore Data Testing':
-    st.write('here is a resources page')
+    df = etpp.load_data()
+    etpp.show_explore_page(df)
 elif choice == 'Classifying':
-    data = ep.load_data()
+    data = ettp.load_data()
     cp.show_classify_predict_page(data['formalizing'])
 elif choice == 'About':
     st.title("About")
