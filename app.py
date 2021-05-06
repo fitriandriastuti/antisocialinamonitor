@@ -14,6 +14,8 @@ import explore_page as ep
 import pickle as pkle
 import os.path
 
+st.sidebar.title('ANTISOCIALINA APP')
+
 next = st.sidebar.button('Choose Next Menu')
 
 new_choice = ['Explore Data Labelling','Explore Data Testing','Classifying','About']
