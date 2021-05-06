@@ -19,7 +19,7 @@ st.sidebar.title('ANTISOCIALINA APP')
 
 next = st.sidebar.button('Choose Next Menu')
 
-new_choice = ['Explore Data Labelling','Explore Data Testing','Classifying','About']
+new_choice = ['Explore Data Labelling','Explore Data Tweet Prediction','Classifying','About']
 
 if os.path.isfile('next.p'):
     next_clicked = pkle.load(open('next.p', 'rb'))
@@ -34,14 +34,14 @@ if next:
     if next_clicked == len(new_choice):
         next_clicked = 0
 
-choice = st.sidebar.radio("Go to Page:",('Explore Data Labelling','Explore Data Testing','Classifying','About'), index=next_clicked)
+choice = st.sidebar.radio("Go to Page:",('Explore Data Labelling','Explore Data Tweet Prediction','Classifying','About'), index=next_clicked)
 
 pkle.dump(new_choice.index(choice), open('next.p', 'wb'))
 
 if choice == 'Explore Data Labelling':
     df = ettp.load_data()
     ettp.show_explore_page(df)
-elif choice == 'Explore Data Testing':
+elif choice == 'Explore Data Tweet Prediction':
     df = etpp.load_data()
     etpp.show_explore_page(df)
 elif choice == 'Classifying':
